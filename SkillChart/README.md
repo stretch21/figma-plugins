@@ -1,4 +1,4 @@
-# Competency Skills Chart Widget
+# XD Skills Widget
 
 A FigJam widget for tracking and visualizing professional competencies across Enterprise Functional and Product Design skill areas.
 

@@ -1,13 +1,24 @@
 {
-  "name": "Skills-Chart",
+  "name": "competency-skills-chart",
   "version": "1.0.0",
-  "description": "Your Figma widget",
+  "description": "A FigJam widget for tracking Enterprise Functional and Product Design competencies across 5 skill levels",
   "main": "code.js",
   "scripts": {
-    "build": "esbuild code.tsx --bundle --outfile=code.js"
+    "build": "esbuild code.tsx --bundle --outfile=code.js",
+    "watch": "esbuild code.tsx --bundle --outfile=code.js --watch"
   },
+  "keywords": [
+    "figma",
+    "figjam",
+    "widget",
+    "skills",
+    "competencies",
+    "assessment",
+    "product-design",
+    "professional-development"
+  ],
   "author": "",
-  "license": "",
+  "license": "MIT",
   "devDependencies": {
     "@figma/plugin-typings": "*",
     "@figma/widget-typings": "^1.4.0",

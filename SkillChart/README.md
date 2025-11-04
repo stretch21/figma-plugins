@@ -1,36 +1,127 @@
-Below are the steps to get your widget running. You can also find instructions at:
+# Competency Skills Chart Widget
 
-https://www.figma.com/widget-docs/setup-guide/
+A FigJam widget for tracking and visualizing professional competencies across Enterprise Functional and Product Design skill areas.
 
-This widget template uses Typescript and NPM, two standard tools in creating JavaScript applications.
+## Features
 
-First, download Node.js which comes with NPM. This will allow you to install TypeScript and other
-libraries. You can find the download link here:
+- **10 Interactive Skill Bars**: Assess competencies across two main categories
+- **5 Proficiency Levels**: From Foundational to Expert
+- **Visual Progress Tracking**: Click on bars to set your skill level
+- **Category Groups**:
+  - **Enterprise Functional Competencies** (6 skills)
+    - Adaptability / Agility
+    - Client / Customer Centricity
+    - Communication
+    - Execution
+    - Organizational & Business Insight
+    - Partnership
+  - **Product Design Functional Competencies** (4 skills)
+    - Consulting
+    - Experience Strategy
+    - Product Strategy
+    - Visual & Interaction Design
 
+## Skill Levels
+
+1. **Foundational** - Basic understanding and capability
+2. **Developing** - Growing proficiency and confidence
+3. **Proficient** - Solid competence and independence
+4. **Advanced** - High expertise and leadership
+5. **Expert** - Mastery and organizational influence
+
+## Setup & Installation
+
+### Prerequisites
+
+First, download Node.js which comes with NPM:
 https://nodejs.org/en/download/
 
-Next, install TypeScript and the latest type definitions by running:
+### Install Dependencies
 
+```bash
 npm install
+```
 
-If you are familiar with JavaScript, TypeScript will look very familiar. In fact, valid JavaScript code
-is already valid Typescript code.
+### Build the Widget
 
-TypeScript adds type annotations to variables. This allows code editors such as Visual Studio Code
-to provide information about the Figma API while you are writing code, as well as help catch bugs
-you previously didn't notice.
+```bash
+npm run build
+```
 
-For more information, visit https://www.typescriptlang.org/
+Or use watch mode for development:
 
-Using TypeScript requires a compiler to convert TypeScript (code.ts) into JavaScript (code.js)
-for the browser to run.
+```bash
+npm run watch
+```
 
-We recommend writing TypeScript code using Visual Studio code:
+## Import into FigJam
 
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Open this directory in Visual Studio Code.
-3. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
-   then select "tsc: watch - tsconfig.json". You will have to do this again every time
-   you reopen Visual Studio Code.
+1. Open FigJam
+2. Go to **Menu > Widgets > Development > Import widget from manifest**
+3. Select the `manifest.json` file from this directory
+4. The widget will appear in your FigJam widgets panel
 
-That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+## Development
+
+This widget uses:
+- **TypeScript** for type-safe code
+- **esbuild** for fast bundling
+- **Figma Widget API** v1.0.0
+
+### File Structure
+
+```
+SkillChart/
+├── manifest.json       # Widget configuration
+├── package.json        # NPM configuration
+├── code.tsx           # Main widget source code
+├── levelinfo.tsx      # Skill definitions and descriptions
+├── code.js            # Compiled output (auto-generated)
+├── levelinfo.js       # Compiled output (auto-generated)
+├── tsconfig.json      # TypeScript configuration
+└── images/
+    ├── Icon.png       # Widget icon
+    └── CoverArt.png   # Widget cover image
+```
+
+### Editing Skills & Levels
+
+Edit the skill definitions in `levelinfo.tsx`:
+
+```typescript
+export const levelDescriptions = [
+    {
+        skill: 'Adaptability / Agility',
+        level: 'Foundational',
+        description: 'Your description here'
+    },
+    // ... more levels
+];
+```
+
+### Customizing Categories
+
+Edit the category definitions in `code.tsx`:
+
+```typescript
+var enterpriseCategory = {
+    name: "Enterprise Functional Competencies",
+    color: "#9747FF",
+    skills: ["Adaptability / Agility", ...],
+    skillDescriptions: ["", "", ...]
+};
+```
+
+## Widget API Documentation
+
+For more information about the Figma Widget API:
+https://www.figma.com/widget-docs/
+
+## TypeScript
+
+This widget is written in TypeScript. For more information:
+https://www.typescriptlang.org/
+
+## License
+
+MIT

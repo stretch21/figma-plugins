@@ -1,5 +1,5 @@
 {
-  "name": "Skills Chart",
+  "name": "Competency Skills Chart",
   "id": "1207836110040407856",
   "api": "1.0.0",
   "main": "code.js",
@@ -7,5 +7,9 @@
     "figjam"
   ],
   "containsWidget": true,
-  "widgetApi": "1.0.0"
+  "widgetApi": "1.0.0",
+  "ui": "",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "build": "npm run build"
 }
